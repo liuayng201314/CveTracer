@@ -1,0 +1,46 @@
+[project]
+name = "cvetracer"
+version = "1.0.0"
+description = "Maven 项目漏洞分析工具 - 通过 MCP 协议为 AI 助手提供漏洞查询和依赖分析能力"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "CveTracer Team"}
+]
+keywords = ["maven", "vulnerability", "cve", "security", "mcp", "dependency-analysis"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "fastmcp>=0.9.0",
+    "requests>=2.32.5",
+    "loguru>=0.7.3",
+    "Markdown>=3.9",
+    "bs4>=0.0.2",
+    "beautifulsoup4>=4.14.2",
+    "colorama>=0.4.6",
+    "javalang>=0.13.0",
+]
+
+[project.scripts]
+cvetracer = "mcp_server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["core", "infrastructure"]
+
+[tool.uv]
+dev-dependencies = []
+
+[tool.uv.sources]
